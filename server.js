@@ -1,11 +1,24 @@
 const app = require('./app')
-const path = require('node:path');
-
-require('dotenv').config({ path: path.resolve(__dirname, './.env') });
+const { connectMongo } = require('./models/connection');
+require('dotenv').config();
 
 const defaultPort = 3000;
-const port = process.env.PORT || defaultPort;
+const PORT = process.env.PORT || defaultPort;
 
-app.listen(port, () => {
-  console.log(`Server run on http://localhost:${port}`)
-})
+const start = async () => {
+  try {
+    await connectMongo();
+
+    app.listen(PORT, (error) => {
+      if (error) console.error('Error at aserver launch:', error);
+      console.log(`Server works at port ${PORT}!`);
+    })
+  } catch (error) {
+    console.log(`Failed to launch application with error ${error.message}`);
+  }
+};
+
+start();
+
+
+

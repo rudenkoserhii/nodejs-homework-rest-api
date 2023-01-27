@@ -14,9 +14,9 @@
     "dotenv": "^16.0.3",
     "express": "^4.17.1",
     "joi": "^17.7.0",
-    "morgan": "^1.10.0",
-    "nanoid": "^4.0.0",
-    "uuid": "^9.0.0"
+    "mongodb": "^4.13.0",
+    "mongoose": "^6.9.0",
+    "morgan": "^1.10.0"
   },
   "devDependencies": {
     "eslint": "7.19.0",
@@ -25,6 +25,7 @@
     "eslint-plugin-import": "2.25.3",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "5.2.0",
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.15",
+    "stylelint-config-standard-scss": "^6.1.0"
   }
 }
