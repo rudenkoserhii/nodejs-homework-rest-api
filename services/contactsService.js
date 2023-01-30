@@ -1,4 +1,4 @@
-const { Contact } = require('../models/contactsModel');
+const { Contact } = require('../models');
 const { WrongParametersError } = require("../helpers/errors");
 
 const listContacts = async () => {
@@ -27,13 +27,13 @@ const addContact = async ({ name, email, phone, favorite }) => {
 const updateContact = async (id, { name, email, phone, favorite }) => {
     
     return await Contact.findByIdAndUpdate(id,
-        { name, email, phone, favorite });
+        { name, email, phone, favorite }, {new: true});
 };
 
 const updateStatusContact = async (id, { favorite }) => {
 
     return await Contact.findByIdAndUpdate(id,
-        {$set: { favorite: !favorite }});
+        {$set: { favorite: !favorite }}, {new: true});
 };
 
 const removeContact = async (id) => {

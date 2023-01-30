@@ -13,7 +13,7 @@ const {
   updateContactController,
   updateStatusContactController,
   removeContactController,
-} = require('../controllers/contactsController');
+} = require('../controllers');
 
 const { asyncWrapper } = require('../helpers/apiHelpers');
 
