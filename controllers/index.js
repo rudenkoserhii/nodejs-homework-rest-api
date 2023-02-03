@@ -1,17 +1,5 @@
-const {
-  listContactsController,
-  getByIdController,
-  addContactController,
-  updateContactController,
-  updateStatusContactController,
-  removeContactController,
-} = require('../controllers/contactsController');
+const contacts = require('./contacts');
 
 module.exports = {
-    listContactsController,
-    getByIdController,
-    addContactController,
-    updateContactController,
-    updateStatusContactController,
-    removeContactController
+    contacts
 };

@@ -1,17 +1,5 @@
-const {
-    listContacts,
-    getById,
-    addContact,
-    updateContact,
-    updateStatusContact,
-    removeContact
-} = require('../services/contactsService');
+const contacts = require('./contacts');
 
 module.exports = {
-    listContacts,
-    getById,
-    addContact,
-    updateContact,
-    updateStatusContact,
-    removeContact,
+    contacts
 };

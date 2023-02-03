@@ -1,6 +1,7 @@
 const app = require('./app')
-const { connectMongo } = require('./models/connection');
+const { connectMongo } = require('./config/connection');
 require('dotenv').config();
+const createError = require('http-errors');
 
 const defaultPort = 3000;
 const PORT = process.env.PORT || defaultPort;

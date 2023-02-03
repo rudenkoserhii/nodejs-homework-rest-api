@@ -1,4 +1,4 @@
-const {Contact} = require('./contactsModel');
+const {Contact} = require('./contact');
 
 module.exports = {
     Contact
