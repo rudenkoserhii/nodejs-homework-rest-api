@@ -1,5 +1,6 @@
 const { Unauthorized } = require("http-errors");
 const jwt = require("jsonwebtoken");
+require('dotenv').config();
 
 const {User} = require("../models");
 
@@ -20,9 +21,6 @@ const auth = async(req, res, next)=> {
         req.user = user;
         next();
     } catch (error) {
-        if(error.message === "Invalid sugnature"){
-            error.status = 401;
-        }
         next(error);
     }
     

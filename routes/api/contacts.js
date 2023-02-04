@@ -6,16 +6,16 @@ const {
   joiPatchSchema
 } = require('../../models/contact');
 
-const {validation, asyncWrapper} = require("../../middlewares");
+const {validation, asyncWrapper, auth} = require("../../middlewares");
 
 const {contacts: controller} = require("../../controllers")
 
-router.get('/', asyncWrapper(controller.listContactsController));
-router.get('/:id', asyncWrapper(controller.getByIdController));
-router.post('/', validation(joiPostSchema), asyncWrapper(controller.addContactController));
-router.put('/:id', validation(joiPutSchema), asyncWrapper(controller.updateContactController));
-router.patch('/:id/favorite', validation(joiPatchSchema), asyncWrapper(controller.updateStatusContactController));
-router.delete('/:id', asyncWrapper(controller.removeContactController));
+router.get('/', auth, asyncWrapper(controller.listContactsController));
+router.get('/:id', auth, asyncWrapper(controller.getByIdController));
+router.post('/', auth, validation(joiPostSchema), asyncWrapper(controller.addContactController));
+router.put('/:id', auth, validation(joiPutSchema), asyncWrapper(controller.updateContactController));
+router.patch('/:id/favorite', auth, validation(joiPatchSchema), asyncWrapper(controller.updateStatusContactController));
+router.delete('/:id', auth, asyncWrapper(controller.removeContactController));
 
 module.exports = router;
 

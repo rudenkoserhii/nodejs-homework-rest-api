@@ -1,6 +1,7 @@
 const {contacts: service} = require("../../services")
 
 const updateStatusContactController = async (req, res) => {
+    const {_id} = req.user;
     const { id } = req.params;
     const { favorite } = req.body;
 
@@ -8,7 +9,7 @@ const updateStatusContactController = async (req, res) => {
         res.status(400).json({ message: "missing field favorite"})
         } else {
 
-        const result = await service.updateStatusContact(id, { favorite })
+        const result = await service.updateStatusContact(id, { favorite }, _id)
 
         if (!result) {return res.status(404).json({ message: "Not found"} ) }
         res.status(200).json(result);

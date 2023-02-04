@@ -1,4 +1,4 @@
-const {contacts: service} = require("../../services")
+const {contacts: service} = require("../../services");
 
 const addContactController = async (req, res) => {
     const {_id} = req.user;
