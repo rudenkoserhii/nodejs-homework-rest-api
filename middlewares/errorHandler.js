@@ -3,6 +3,10 @@ const errorHandler = (err, req, res, next) => {
     let errStatus = err.statusCode || 500;
     let errMsg = err.message || 'Something went wrong';
 
+    if (err.message === 'invalid signature') {
+        errStatus = 401;
+        errMsg = 'Invalid signature!';
+    }
     if (err.name === 'MongoServerError' && err.code === 11000) {
         errStatus = 409;
         errMsg = 'There name is already exists!';
