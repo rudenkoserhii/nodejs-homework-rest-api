@@ -3,7 +3,7 @@ const { NotFound } = require("http-errors");
 
 const updateSubsc = async (_id, { subscription }) => {
 
-    const user = await User.findByIdAndUpdate(_id,
+    const user = await User.findOneAndUpdate(_id,
         {$set: { subscription: subscription }}, {new: true, fields: ["email", "subscription", "updatedAt"]});
 
     if (!user) {
