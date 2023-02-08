@@ -1,6 +1,6 @@
 const {User} = require("../../models");
 
-const getCurrent = async(req, res)=> {
+const getCurrentController = async(req, res)=> {
     const {name, email} = req.user;
     res.json({
         status: "success",
@@ -15,4 +15,4 @@ const getCurrent = async(req, res)=> {
     })
 }
 
-module.exports = getCurrent;
+module.exports = getCurrentController;

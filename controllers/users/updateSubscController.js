@@ -4,8 +4,6 @@ const updateSubscController = async (req, res) => {
     const {_id} = req.user;
     const { subscription } = req.body;
 
-console.log(subscription);
-
     if (subscription === null) {
         res.status(400).json({ message: "missing field favorite"})
         } else {
