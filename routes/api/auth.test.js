@@ -19,6 +19,7 @@ describe("test auth routes", ()=> {
     });
 
     afterEach((done) => {
+        mongoose.connection.db.dropCollection('contacts')
         mongoose.connection.db.dropCollection('users', () => {
             mongoose.connection.close(()=> done())
         });
@@ -58,5 +59,8 @@ describe("test auth routes", ()=> {
         const {email, subscription} = await User.findById(user._id);
         expect(body.data.user.email).toBe(email);
         expect(body.data.user.subscription).toBe(subscription);
+//Check typeOf object properties "email" & "subscription" are "string"
+        expect(typeof body.data.user.email).toBe("string");
+        expect(typeof body.data.user.subscription).toBe("string");
     })
 })
