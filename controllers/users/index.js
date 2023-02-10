@@ -1,7 +1,10 @@
-const getCurrent = require("./getCurrent");
+const getCurrentController = require("./getCurrentController");
 const updateSubscController = require("./updateSubscController");
+const updateAvatarController = require("./updateAvatarController");
+
 
 module.exports = {
-    getCurrent,
+    getCurrentController,
     updateSubscController,
+    updateAvatarController
 }

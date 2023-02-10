@@ -21,15 +21,19 @@ const userSchema = Schema({
     token: {
         type: String,
         default: null
-    }
+    },
+    avatarURL: {
+        type: String,
+        required: true
+    },
 }, {versionKey: false, timestamps: true});
 
 userSchema.methods.setPassword = async function(password){
-    this.password = bcrypt.hash(password, bcrypt.genSaltSync(10));
+    this.password = await bcrypt.hash(password, bcrypt.genSaltSync(10));
 }
 
 userSchema.methods.comparePassword = async function(password){
-    return bcrypt.compare(password, this.password);
+    return await bcrypt.compare(password, this.password);
 }
 
 const joiRegisterSchema = Joi.object({
