@@ -15,7 +15,7 @@ const resendVerifyEmail = async(req, res)=> {
     const mail = {
         to: email,
         subject: "Підтвердження реєстрації на сайті",
-        html: `<a href="http://localhost:3000/api/auth/verify/${user.verificationToken}" target="_blank">Натисніть для підтвердження email</a>`
+        html: `<a href="http://localhost:4321/api/users/verify/${user.verificationToken}" target="_blank">Натисніть для підтвердження email</a>`
     };
     await sendEmail(mail);
     res.status(200).json({
